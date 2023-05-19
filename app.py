@@ -7,7 +7,7 @@ def handler(event, context):
     return {
         'headers': {'Content-Type' : 'application/json'},
         'statusCode': 200,
-        'body': json.dumps({"message": "Lambda Container image invoked! - from ECR container",
+        'body': json.dumps({"message": "Lambda Container image invoked! - from Lambda function",
                             # "event": event
                             })
 }
