@@ -55,8 +55,8 @@ jobs:
         ECR_REPOSITORY: gh_lambda_ecr_repo
         IMAGE_TAG: latest
         FUNCTION_NAME: fucn3
-      run: ecr_uri=$(aws ecr describe-repositories --repository-names $ECR_REPOSITORY --query 'repositories[0].repositoryUri' --output text):$IMAGE_TAG
-      run: aws lambda update-function-code --function-name $FUNCTION_NAME --image-uri $ecr_uri
+      run: ecr_uri=$(aws ecr describe-repositories --repository-names $ECR_REPOSITORY --query 'repositories[0].repositoryUri' --output text):$IMAGE_TAG &&
+           aws lambda update-function-code --function-name $FUNCTION_NAME --image-uri $ecr_uri
       shell: bash
 
     - name: Delete old docker images
